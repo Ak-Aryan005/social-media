@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "Operazione completata con successo",
+    "failed": "Operazione fallita",
+    "unauthorized": "Non sei autorizzato a eseguire questa azione",
+    "forbidden": "Accesso negato",
+    "notFound": "Risorsa non trovata",
+    "validationError": "Validazione fallita",
+    "serverError": "Si è verificato un errore sul server",
+    "invalidRequest": "Dati della richiesta non validi"
+  },
+
+  "auth": {
+    "signupSuccess": "Account creato con successo",
+    "loginSuccess": "Accesso effettuato con successo",
+    "logoutSuccess": "Disconnessione riuscita",
+    "invalidCredentials": "Email o password non validi",
+    "emailAlreadyExists": "L'email esiste già",
+    "usernameAlreadyExists": "Il nome utente esiste già",
+    "verifyEmailSent": "Email di verifica inviata",
+    "emailVerified": "Email verificata con successo",
+    "invalidOTP": "Codice di verifica non valido o scaduto",
+    "tokenExpired": "La sessione è scaduta",
+    "passwordChanged": "Password cambiata con successo",
+    "passwordResetEmailSent": "Email per reimpostare la password inviata",
+    "resetSuccess": "Reimpostazione della password riuscita"
+  },
+
+  "user": {
+    "profileFetched": "Profilo utente ottenuto",
+    "profileUpdated": "Profilo aggiornato con successo",
+    "userNotFound": "Utente non trovato",
+    "followSuccess": "Ora stai seguendo questo utente",
+    "unfollowSuccess": "Hai smesso di seguire questo utente",
+    "alreadyFollowing": "Segui già questo utente",
+    "notFollowing": "Non stai seguendo questo utente"
+  },
+
+  "post": {
+    "created": "Post creato con successo",
+    "updated": "Post aggiornato",
+    "deleted": "Post eliminato",
+    "fetched": "Post recuperati",
+    "notFound": "Post non trovato"
+  },
+
+  "story": {
+    "created": "Storia caricata",
+    "deleted": "Storia eliminata",
+    "expired": "La storia è scaduta",
+    "fetched": "Storie recuperate"
+  },
+
+  "reel": {
+    "created": "Reel caricato con successo",
+    "deleted": "Reel eliminato",
+    "fetched": "Reel recuperati"
+  },
+
+  "comment": {
+    "added": "Commento aggiunto",
+    "deleted": "Commento eliminato",
+    "fetched": "Commenti recuperati",
+    "notFound": "Commento non trovato"
+  },
+
+  "like": {
+    "liked": "Post apprezzato",
+    "unliked": "Apprezzamento rimosso"
+  },
+
+  "follow": {
+    "fetchedFollowers": "Lista dei follower recuperata",
+    "fetchedFollowing": "Lista dei seguiti recuperata"
+  },
+
+  "chat": {
+    "messageSent": "Messaggio inviato",
+    "messageDeleted": "Messaggio eliminato",
+    "messagesFetched": "Messaggi recuperati",
+    "chatNotFound": "Chat non trovata"
+  },
+
+  "notification": {
+    "fetched": "Notifiche recuperate",
+    "read": "Notifica segnata come letta",
+    "allRead": "Tutte le notifiche segnate come lette"
+  },
+
+  "admin": {
+    "userBlocked": "Utente bloccato",
+    "userUnblocked": "Utente sbloccato",
+    "userDeleted": "Utente eliminato",
+    "dashboardFetched": "Dati della dashboard recuperati"
+  }
+}

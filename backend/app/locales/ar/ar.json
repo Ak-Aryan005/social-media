@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "تم إكمال العملية بنجاح",
+    "failed": "فشلت العملية",
+    "unauthorized": "غير مصرح لك بتنفيذ هذا الإجراء",
+    "forbidden": "تم رفض الوصول",
+    "notFound": "المورد غير موجود",
+    "validationError": "فشل التحقق",
+    "serverError": "حدث خطأ في الخادم",
+    "invalidRequest": "بيانات الطلب غير صالحة"
+  },
+
+  "auth": {
+    "signupSuccess": "تم إنشاء الحساب بنجاح",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "logoutSuccess": "تم تسجيل الخروج بنجاح",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "emailAlreadyExists": "البريد الإلكتروني مستخدم بالفعل",
+    "usernameAlreadyExists": "اسم المستخدم موجود مسبقًا",
+    "verifyEmailSent": "تم إرسال رسالة التحقق",
+    "emailVerified": "تم التحقق من البريد الإلكتروني بنجاح",
+    "invalidOTP": "رمز التحقق غير صالح أو منتهي",
+    "tokenExpired": "انتهت صلاحية الجلسة",
+    "passwordChanged": "تم تغيير كلمة المرور بنجاح",
+    "passwordResetEmailSent": "تم إرسال بريد إعادة تعيين كلمة المرور",
+    "resetSuccess": "تمت إعادة تعيين كلمة المرور بنجاح"
+  },
+
+  "user": {
+    "profileFetched": "تم جلب ملف المستخدم",
+    "profileUpdated": "تم تحديث الملف الشخصي بنجاح",
+    "userNotFound": "المستخدم غير موجود",
+    "followSuccess": "أصبحت تتابع هذا المستخدم",
+    "unfollowSuccess": "تم إلغاء المتابعة",
+    "alreadyFollowing": "أنت تتابع هذا المستخدم بالفعل",
+    "notFollowing": "أنت لا تتابع هذا المستخدم"
+  },
+
+  "post": {
+    "created": "تم إنشاء المنشور بنجاح",
+    "updated": "تم تحديث المنشور بنجاح",
+    "deleted": "تم حذف المنشور",
+    "fetched": "تم جلب المنشورات",
+    "notFound": "المنشور غير موجود"
+  },
+
+  "story": {
+    "created": "تم رفع القصة",
+    "deleted": "تم حذف القصة",
+    "expired": "انتهت صلاحية القصة",
+    "fetched": "تم جلب القصص"
+  },
+
+  "reel": {
+    "created": "تم رفع الريل بنجاح",
+    "deleted": "تم حذف الريل",
+    "fetched": "تم جلب الريلز"
+  },
+
+  "comment": {
+    "added": "تم إضافة التعليق",
+    "deleted": "تم حذف التعليق",
+    "fetched": "تم جلب التعليقات",
+    "notFound": "التعليق غير موجود"
+  },
+
+  "like": {
+    "liked": "تم الإعجاب بالمنشور",
+    "unliked": "تم إزالة الإعجاب"
+  },
+
+  "follow": {
+    "fetchedFollowers": "تم جلب قائمة المتابعين",
+    "fetchedFollowing": "تم جلب قائمة المتابَعين"
+  },
+
+  "chat": {
+    "messageSent": "تم إرسال الرسالة",
+    "messageDeleted": "تم حذف الرسالة",
+    "messagesFetched": "تم جلب الرسائل",
+    "chatNotFound": "المحادثة غير موجودة"
+  },
+
+  "notification": {
+    "fetched": "تم جلب الإشعارات",
+    "read": "تم تعليم الإشعار كمقروء",
+    "allRead": "تم تعليم جميع الإشعارات كمقروءة"
+  },
+
+  "admin": {
+    "userBlocked": "تم حظر المستخدم",
+    "userUnblocked": "تم إلغاء حظر المستخدم",
+    "userDeleted": "تم حذف المستخدم",
+    "dashboardFetched": "تم جلب بيانات لوحة التحكم"
+  }
+}
