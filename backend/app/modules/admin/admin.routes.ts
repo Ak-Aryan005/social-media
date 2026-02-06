@@ -15,4 +15,4 @@ router.get("/:adminId", adminController.getAdmin);
 router.patch("/:adminId", adminController.updateAdmin);
 router.delete("/:adminId", adminController.deleteAdmin);
 
-export default router;
+// export default router;
