@@ -1,7 +1,7 @@
 import express, { Express } from "express";
 import * as bodyParser from "body-parser";
 // import * as cors from "cors";
-import cors from 'cors'
+// import cors from 'cors'
 import httpStatus from "http-status";
 import config from "./config/config";
 import * as morgan from "./config/morgan";
@@ -92,6 +92,36 @@ app.use(globalLimiter);
 
 // Enable CORS
 // app.use(cors.default());
+
+import cors, { CorsOptions } from "cors";
+
+const allowedOrigins: string[] = [
+  "http://localhost:5173", // Vite
+  "http://localhost:8080", // CRA
+  "https://your-frontend.vercel.app"
+];
+
+const corsOptions: CorsOptions = {
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) => {
+    // allow requests with no origin (like Postman, mobile apps)
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(cors({
   origin:"*",
     credentials: true,
