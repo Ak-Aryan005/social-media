@@ -68,7 +68,7 @@ app.use("/_healthcheck", async (_req, res) => {
  res.status(503).send();
  }
 });
-
+app.set('trust proxy', 1); 
 // -----------------------------
 //  Global Rate Limiter
 // -----------------------------
