@@ -13,7 +13,7 @@ export const initSocket = () => {
       return null;
     }
 
-    socket = io("http://localhost:5004", {
+    socket = io(import.meta.env.VITE_API_URL, {
       transports: ["websocket"],
       auth: {
         token: `Bearer ${token}`, // 🔥 REQUIRED
