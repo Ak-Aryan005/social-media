@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "操作成功完成",
+    "failed": "操作失败",
+    "unauthorized": "您无权执行此操作",
+    "forbidden": "访问被拒绝",
+    "notFound": "未找到资源",
+    "validationError": "验证失败",
+    "serverError": "服务器发生错误",
+    "invalidRequest": "无效的请求数据"
+  },
+
+  "auth": {
+    "signupSuccess": "账户创建成功",
+    "loginSuccess": "登录成功",
+    "logoutSuccess": "退出登录成功",
+    "invalidCredentials": "邮箱或密码无效",
+    "emailAlreadyExists": "邮箱已存在",
+    "usernameAlreadyExists": "用户名已存在",
+    "verifyEmailSent": "验证邮件已发送",
+    "emailVerified": "邮箱验证成功",
+    "invalidOTP": "验证码无效或已过期",
+    "tokenExpired": "会话已过期",
+    "passwordChanged": "密码修改成功",
+    "passwordResetEmailSent": "重置密码邮件已发送",
+    "resetSuccess": "密码重置成功"
+  },
+
+  "user": {
+    "profileFetched": "用户资料已获取",
+    "profileUpdated": "资料更新成功",
+    "userNotFound": "未找到用户",
+    "followSuccess": "你已关注该用户",
+    "unfollowSuccess": "你已取消关注",
+    "alreadyFollowing": "你已关注该用户",
+    "notFollowing": "你未关注该用户"
+  },
+
+  "post": {
+    "created": "帖子创建成功",
+    "updated": "帖子更新成功",
+    "deleted": "帖子已删除",
+    "fetched": "帖子已获取",
+    "notFound": "帖子未找到"
+  },
+
+  "story": {
+    "created": "故事已上传",
+    "deleted": "故事已删除",
+    "expired": "故事已过期",
+    "fetched": "故事已获取"
+  },
+
+  "reel": {
+    "created": "短视频上传成功",
+    "deleted": "短视频已删除",
+    "fetched": "短视频已获取"
+  },
+
+  "comment": {
+    "added": "评论已添加",
+    "deleted": "评论已删除",
+    "fetched": "评论已获取",
+    "notFound": "评论未找到"
+  },
+
+  "like": {
+    "liked": "已点赞帖子",
+    "unliked": "已取消点赞"
+  },
+
+  "follow": {
+    "fetchedFollowers": "粉丝列表已获取",
+    "fetchedFollowing": "关注列表已获取"
+  },
+
+  "chat": {
+    "messageSent": "消息已发送",
+    "messageDeleted": "消息已删除",
+    "messagesFetched": "消息已获取",
+    "chatNotFound": "聊天未找到"
+  },
+
+  "notification": {
+    "fetched": "通知已获取",
+    "read": "通知标记为已读",
+    "allRead": "所有通知标记为已读"
+  },
+
+  "admin": {
+    "userBlocked": "用户已被封禁",
+    "userUnblocked": "用户封禁已解除",
+    "userDeleted": "用户已删除",
+    "dashboardFetched": "管理面板数据已获取"
+  }
+}

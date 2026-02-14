@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "क्रिया सफलतापूर्वक पूरी हुई",
+    "failed": "क्रिया असफल हुई",
+    "unauthorized": "आपको यह क्रिया करने की अनुमति नहीं है",
+    "forbidden": "एक्सेस अस्वीकार किया गया",
+    "notFound": "संसाधन नहीं मिला",
+    "validationError": "वैलिडेशन असफल हुआ",
+    "serverError": "सर्वर पर कुछ गड़बड़ी हुई",
+    "invalidRequest": "अमान्य अनुरोध डेटा"
+  },
+
+  "auth": {
+    "signupSuccess": "खाता सफलतापूर्वक बनाया गया",
+    "loginSuccess": "सफलतापूर्वक लॉगिन हुआ",
+    "logoutSuccess": "सफलतापूर्वक लॉगआउट हुआ",
+    "invalidCredentials": "अमान्य ईमेल या पासवर्ड",
+    "emailAlreadyExists": "ईमेल पहले से मौजूद है",
+    "usernameAlreadyExists": "यूज़रनेम पहले से मौजूद है",
+    "verifyEmailSent": "वेरिफिकेशन ईमेल भेजा गया",
+    "emailVerified": "ईमेल सफलतापूर्वक सत्यापित हुआ",
+    "invalidOTP": "अमान्य या समाप्त हुआ OTP",
+    "tokenExpired": "आपका सत्र समाप्त हो गया है",
+    "passwordChanged": "पासवर्ड सफलतापूर्वक बदल दिया गया",
+    "passwordResetEmailSent": "पासवर्ड रीसेट ईमेल भेजा गया",
+    "resetSuccess": "पासवर्ड सफलतापूर्वक रीसेट हुआ"
+  },
+
+  "user": {
+    "profileFetched": "यूज़र प्रोफ़ाइल प्राप्त हुई",
+    "profileUpdated": "प्रोफ़ाइल सफलतापूर्वक अपडेट हुई",
+    "userNotFound": "यूज़र नहीं मिला",
+    "followSuccess": "अब आप इस यूज़र को फॉलो कर रहे हैं",
+    "unfollowSuccess": "आपने इस यूज़र को अनफॉलो किया",
+    "alreadyFollowing": "आप पहले से इस यूज़र को फॉलो कर रहे हैं",
+    "notFollowing": "आप इस यूज़र को फॉलो नहीं कर रहे"
+  },
+
+  "post": {
+    "created": "पोस्ट सफलतापूर्वक बनाई गई",
+    "updated": "पोस्ट सफलतापूर्वक अपडेट की गई",
+    "deleted": "पोस्ट सफलतापूर्वक हटाई गई",
+    "fetched": "पोस्ट्स प्राप्त की गईं",
+    "notFound": "पोस्ट नहीं मिली"
+  },
+
+  "story": {
+    "created": "स्टोरी अपलोड की गई",
+    "deleted": "स्टोरी हटाई गई",
+    "expired": "स्टोरी की अवधि समाप्त हो गई है",
+    "fetched": "स्टोरीज़ प्राप्त की गईं"
+  },
+
+  "reel": {
+    "created": "रील सफलतापूर्वक अपलोड हुई",
+    "deleted": "रील हटाई गई",
+    "fetched": "रील्स प्राप्त की गईं"
+  },
+
+  "comment": {
+    "added": "टिप्पणी जोड़ी गई",
+    "deleted": "टिप्पणी हटाई गई",
+    "fetched": "टिप्पणियाँ प्राप्त की गईं",
+    "notFound": "टिप्पणी नहीं मिली"
+  },
+
+  "like": {
+    "liked": "पोस्ट को लाइक किया गया",
+    "unliked": "लाइक हटाया गया"
+  },
+
+  "follow": {
+    "fetchedFollowers": "फॉलोअर्स की सूची प्राप्त हुई",
+    "fetchedFollowing": "फॉलोइंग की सूची प्राप्त हुई"
+  },
+
+  "chat": {
+    "messageSent": "संदेश भेजा गया",
+    "messageDeleted": "संदेश हटाया गया",
+    "messagesFetched": "संदेश प्राप्त हुए",
+    "chatNotFound": "चैट नहीं मिली"
+  },
+
+  "notification": {
+    "fetched": "सूचनाएँ प्राप्त हुईं",
+    "read": "सूचना पढ़ी गई",
+    "allRead": "सभी सूचनाएँ पढ़ी गईं"
+  },
+
+  "admin": {
+    "userBlocked": "यूज़र ब्लॉक किया गया",
+    "userUnblocked": "यूज़र अनब्लॉक किया गया",
+    "userDeleted": "यूज़र हटाया गया",
+    "dashboardFetched": "एडमिन डैशबोर्ड डेटा प्राप्त हुआ"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "Operation completed successfully",
+    "failed": "Operation failed",
+    "unauthorized": "You are not authorized to perform this action",
+    "forbidden": "Access denied",
+    "notFound": "Resource not found",
+    "validationError": "Validation failed",
+    "serverError": "Something went wrong on the server",
+    "invalidRequest": "Invalid request data"
+  },
+
+  "auth": {
+    "signupSuccess": "Account created successfully",
+    "loginSuccess": "Logged in successfully",
+    "logoutSuccess": "Logged out successfully",
+    "invalidCredentials": "Invalid email or password",
+    "emailAlreadyExists": "Email already exists",
+    "usernameAlreadyExists": "Username already exists",
+    "verifyEmailSent": "Verification email sent",
+    "emailVerified": "Email verified successfully",
+    "invalidOTP": "Invalid or expired verification code",
+    "tokenExpired": "Your session has expired",
+    "passwordChanged": "Password changed successfully",
+    "passwordResetEmailSent": "Password reset email sent",
+    "resetSuccess": "Password reset successfully"
+  },
+
+  "user": {
+    "profileFetched": "User profile fetched",
+    "profileUpdated": "Profile updated successfully",
+    "userNotFound": "User not found",
+    "followSuccess": "You are now following this user",
+    "unfollowSuccess": "You unfollowed this user",
+    "alreadyFollowing": "You are already following this user",
+    "notFollowing": "You are not following this user"
+  },
+
+  "post": {
+    "created": "Post created successfully",
+    "updated": "Post updated successfully",
+    "deleted": "Post deleted successfully",
+    "fetched": "Posts fetched",
+    "notFound": "Post not found"
+  },
+
+  "story": {
+    "created": "Story uploaded",
+    "deleted": "Story deleted",
+    "expired": "Story has expired",
+    "fetched": "Stories fetched"
+  },
+
+  "reel": {
+    "created": "Reel uploaded successfully",
+    "deleted": "Reel deleted successfully",
+    "fetched": "Reels fetched"
+  },
+
+  "comment": {
+    "added": "Comment added",
+    "deleted": "Comment deleted",
+    "fetched": "Comments fetched",
+    "notFound": "Comment not found"
+  },
+
+  "like": {
+    "liked": "Post liked",
+    "unliked": "Like removed"
+  },
+
+  "follow": {
+    "fetchedFollowers": "Followers list fetched",
+    "fetchedFollowing": "Following list fetched"
+  },
+
+  "chat": {
+    "messageSent": "Message sent",
+    "messageDeleted": "Message deleted",
+    "messagesFetched": "Messages fetched",
+    "chatNotFound": "Chat not found"
+  },
+
+  "notification": {
+    "fetched": "Notifications fetched",
+    "read": "Notification marked as read",
+    "allRead": "All notifications marked as read"
+  },
+
+  "admin": {
+    "userBlocked": "User has been blocked",
+    "userUnblocked": "User has been unblocked",
+    "userDeleted": "User has been deleted",
+    "dashboardFetched": "Admin dashboard data fetched"
+  }
+}

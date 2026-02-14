@@ -1,0 +1,96 @@
+{
+  "common": {
+    "success": "İşlem başarıyla tamamlandı",
+    "failed": "İşlem başarısız oldu",
+    "unauthorized": "Bu işlemi gerçekleştirme yetkiniz yok",
+    "forbidden": "Erişim reddedildi",
+    "notFound": "Kaynak bulunamadı",
+    "validationError": "Doğrulama başarısız oldu",
+    "serverError": "Sunucuda bir hata oluştu",
+    "invalidRequest": "Geçersiz istek verisi"
+  },
+
+  "auth": {
+    "signupSuccess": "Hesap başarıyla oluşturuldu",
+    "loginSuccess": "Giriş başarılı",
+    "logoutSuccess": "Çıkış başarılı",
+    "invalidCredentials": "E-posta veya şifre hatalı",
+    "emailAlreadyExists": "E-posta zaten mevcut",
+    "usernameAlreadyExists": "Kullanıcı adı zaten mevcut",
+    "verifyEmailSent": "Doğrulama e-postası gönderildi",
+    "emailVerified": "E-posta başarıyla doğrulandı",
+    "invalidOTP": "Geçersiz veya süresi dolmuş doğrulama kodu",
+    "tokenExpired": "Oturum süresi doldu",
+    "passwordChanged": "Şifre başarıyla değiştirildi",
+    "passwordResetEmailSent": "Şifre sıfırlama e-postası gönderildi",
+    "resetSuccess": "Şifre başarıyla sıfırlandı"
+  },
+
+  "user": {
+    "profileFetched": "Kullanıcı profili getirildi",
+    "profileUpdated": "Profil başarıyla güncellendi",
+    "userNotFound": "Kullanıcı bulunamadı",
+    "followSuccess": "Bu kullanıcıyı takip etmeye başladınız",
+    "unfollowSuccess": "Kullanıcıyı takip etmeyi bıraktınız",
+    "alreadyFollowing": "Bu kullanıcıyı zaten takip ediyorsunuz",
+    "notFollowing": "Bu kullanıcıyı takip etmiyorsunuz"
+  },
+
+  "post": {
+    "created": "Gönderi başarıyla oluşturuldu",
+    "updated": "Gönderi güncellendi",
+    "deleted": "Gönderi silindi",
+    "fetched": "Gönderiler getirildi",
+    "notFound": "Gönderi bulunamadı"
+  },
+
+  "story": {
+    "created": "Hikaye yüklendi",
+    "deleted": "Hikaye silindi",
+    "expired": "Hikayenin süresi doldu",
+    "fetched": "Hikayeler getirildi"
+  },
+
+  "reel": {
+    "created": "Reel başarıyla yüklendi",
+    "deleted": "Reel silindi",
+    "fetched": "Reeller getirildi"
+  },
+
+  "comment": {
+    "added": "Yorum eklendi",
+    "deleted": "Yorum silindi",
+    "fetched": "Yorumlar getirildi",
+    "notFound": "Yorum bulunamadı"
+  },
+
+  "like": {
+    "liked": "Gönderi beğenildi",
+    "unliked": "Beğeni kaldırıldı"
+  },
+
+  "follow": {
+    "fetchedFollowers": "Takipçi listesi getirildi",
+    "fetchedFollowing": "Takip edilenler listesi getirildi"
+  },
+
+  "chat": {
+    "messageSent": "Mesaj gönderildi",
+    "messageDeleted": "Mesaj silindi",
+    "messagesFetched": "Mesajlar getirildi",
+    "chatNotFound": "Sohbet bulunamadı"
+  },
+
+  "notification": {
+    "fetched": "Bildirimler getirildi",
+    "read": "Bildirim okundu olarak işaretlendi",
+    "allRead": "Tüm bildirimler okundu olarak işaretlendi"
+  },
+
+  "admin": {
+    "userBlocked": "Kullanıcı engellendi",
+    "userUnblocked": "Kullanıcı engeli kaldırıldı",
+    "userDeleted": "Kullanıcı silindi",
+    "dashboardFetched": "Yönetim paneli verileri getirildi"
+  }
+}
