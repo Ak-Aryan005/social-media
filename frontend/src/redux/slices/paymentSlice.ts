@@ -20,7 +20,6 @@ export const fetchPayment = createAsyncThunk(
     try {
       const response = await axiosInstance.post('/subscription/',{userId});
       // Assuming the API returns { data: { data: ... } } or { data: ... }
-console.log('res', response);
       return response.data.data || response.data;
     } catch (error: any) {
       // Reject the thunk with a proper error message

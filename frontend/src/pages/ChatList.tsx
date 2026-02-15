@@ -45,7 +45,6 @@ const avatarimg = "/DP For Girls (19).jpg";
       readBy:message.readBy
     };
   });
-console.log(`chats`,chats)
 
   return (
     <div className="min-h-screen bg-background">

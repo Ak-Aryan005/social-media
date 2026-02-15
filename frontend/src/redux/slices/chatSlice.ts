@@ -148,7 +148,6 @@ export const uploadChatMedia = createAsyncThunk<
           },
         }
       );
-      console.log(`med ${JSON.stringify(response.data)}`)
       return response.data.data.media; // { type, url }
     } catch (error: any) {
       return rejectWithValue(

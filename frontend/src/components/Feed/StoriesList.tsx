@@ -13,7 +13,6 @@ export default function StoriesList() {
     (state: RootState) => state.stories
   );
   const { isAuthenticated,user } = useAppSelector((state) => state.auth);
-  console.log(`ur${user}`)
   useEffect(() => {
     dispatch(fetchStories());
   }, [dispatch]);

@@ -37,7 +37,6 @@ useEffect(() => {
   }
 }, [userId, dispatch]);
 
-console.log('profile:', profile);
 
 
   const isOwnProfile =(currentUser?._id || currentUser?.id) === (profile?._id || profile?.id);

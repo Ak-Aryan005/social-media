@@ -19,7 +19,6 @@ export default function ChatHeader({ chatId }: ChatHeaderProps) {
   );
 
   const matchedGroup = groupList.find((u) => u._id === chatId);
-  console.log(`gr ${JSON.stringify( matchedGroup)}`)
 
   if (isLoading) {
   return <Loader />;

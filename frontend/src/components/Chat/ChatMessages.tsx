@@ -15,7 +15,6 @@ export default function ChatMessages({ chatId }: ChatMessagesProps) {
     const bottomRef = useRef<HTMLDivElement | null>(null);
   const currentUserId = useAppSelector((s) => s.auth.user?._id);
   const messages = useAppSelector((s) => s.chat.messagesByChat[chatId] || []);
-console.log(`curr${currentUserId}`)
   // Fetch previous messages once
   useEffect(() => {
     if (chatId) {

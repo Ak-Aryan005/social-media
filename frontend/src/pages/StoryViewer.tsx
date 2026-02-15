@@ -29,8 +29,7 @@ export default function StoryViewer() {
 
   // Current story
   const currentStory = userStories[currentIndex] || null;
-console.log(`cu ${JSON.stringify(currentStory)}`)
-console.log(`c${currentIndex}`)
+
   /* ---------------- Fetch user stories ---------------- */
   useEffect(() => {
     if (id) dispatch(fetchUserStories(id));
