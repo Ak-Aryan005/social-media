@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '@/redux/slices/authSlice';
 interface ProfileHeaderProps {
   userId: string;
   username: string;
@@ -56,8 +57,14 @@ const avatarimg = "/DP For Girls (19).jpg";
 const existingChat = chatList.find(
   chat => chat.userInfo?._id === userId
 );  
-// console.log("chatList:", chatList);
-// console.log("profile userId:", userId);
+const handleLogout = async () => {
+    try {
+      await dispatch(logout()).unwrap();
+    } catch (error) {
+      // Even if logout fails, clear local state
+    }
+    navigate('/login');
+  };
 
 useEffect(() => {
   if (!chatList.length) {
@@ -214,7 +221,8 @@ const handleMessageClick = () => {
                         <DropdownMenuItem>
                          <Link to="/subscription">Subscription</Link> 
                           </DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">
+                        <DropdownMenuItem className="text-destructive" 
+                         onClick={handleLogout}>
                           Log Out
                         </DropdownMenuItem>
                       </DropdownMenuContent>

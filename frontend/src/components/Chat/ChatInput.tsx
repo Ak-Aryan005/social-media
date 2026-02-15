@@ -1,6 +1,6 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import { getSocket } from "@/socket/socket";
-import { SendHorizontal,Image } from "lucide-react";
+import { SendHorizontal, Image } from "lucide-react";
 import { useAppDispatch } from "@/hooks/redux";
 import { uploadChatMedia } from "@/redux/slices/chatSlice";
 
@@ -10,21 +10,29 @@ interface ChatInputProps {
   navigate: (path: string) => void;
 }
 
-export default function ChatInput({ chatId, receiverId, navigate }: ChatInputProps) {
+export default function ChatInput({
+  chatId,
+  receiverId,
+  navigate,
+}: ChatInputProps) {
   const [message, setMessage] = useState("");
-  const dispatch = useAppDispatch();
+  const [isUploading, setIsUploading] = useState(false);
 
+  const dispatch = useAppDispatch();
   const socket = getSocket();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // ================= SEND TEXT MESSAGE =================
   const sendMessage = () => {
     if (!message.trim()) return;
-
     if (!socket || !socket.connected) return;
+    if (isUploading) return; // prevent sending while uploading
 
     socket.emit(
       "send-message",
       {
-        chatId,        // undefined if first-time message
-        receiverId,    // required if first-time message
+        chatId,
+        receiverId,
         content: message,
       },
       (res: any) => {
@@ -33,7 +41,7 @@ export default function ChatInput({ chatId, receiverId, navigate }: ChatInputPro
           return;
         }
 
-        // First-time message: navigate to newly created chat
+        // First-time message navigation
         if (!chatId && res?.chatId) {
           navigate(`/chat/${res.chatId}`);
         }
@@ -43,87 +51,104 @@ export default function ChatInput({ chatId, receiverId, navigate }: ChatInputPro
     setMessage("");
   };
 
-const handleSendMedia = async (file: File) => {
-  try {
-    const media = await dispatch(uploadChatMedia(file)).unwrap(); // { url, type }
-console.log("med",media)
-   let content =null
-    if (media?.type === "image") content = "send a image"
-        else if (media?.type === "video") content = "send a video";
-    else if (media?.type==="audio") content = "audio";
-    socket.emit(
-      "send-message",
-      {
-        chatId,       // undefined if first-time chat
-        receiverId,   // required if first-time
-        content,  // optional if no text
-        media:media,        // must be { url, type }
-      },
-      (res: any) => {
-        if (res?.error) console.error("Send message failed:", res.error);
-      }
-    );
-  } catch (err) {
-    console.error("Upload failed:", err);
-  }
-};
+  // ================= SEND MEDIA =================
+  const handleSendMedia = async (file: File) => {
+    if (!socket || !socket.connected) return;
 
+    try {
+      setIsUploading(true);
 
-   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+      const media = await dispatch(uploadChatMedia(file)).unwrap();
 
-const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    if (!files.length) return;
+      let content: string | null = null;
+      if (media?.type === "image") content = "sent an image";
+      else if (media?.type === "video") content = "sent a video";
+      else if (media?.type === "audio") content = "sent an audio";
 
-    setSelectedFiles(files);
+      socket.emit(
+        "send-message",
+        {
+          chatId,
+          receiverId,
+          content,
+          media, // { url, type }
+        },
+        (res: any) => {
+          if (res?.error) {
+            console.error("Send message failed:", res.error);
+          }
+
+          if (!chatId && res?.chatId) {
+            navigate(`/chat/${res.chatId}`);
+          }
+        }
+      );
+    } catch (err) {
+      console.error("Upload failed:", err);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  // ================= FILE SELECT =================
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    handleSendMedia(file);
     e.target.value = ""; // reset input
   };
 
   return (
-     <div className="border-t p-3">
-  <div className="flex items-center gap-2 rounded-full border px-3 py-2">
-    
-    {/* Image button (left inside input) */}
-    <button
-      onClick={() => fileInputRef.current?.click()}
-      className="text-gray-500 hover:text-black"
-    >
-      <Image size={20} />
-    </button>
+    <div className="border-t p-3">
+      {/* Uploading Indicator */}
+      {isUploading && (
+        <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+          <div className="w-3 h-3 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+          Uploading media...
+        </div>
+      )}
 
-    {/* Text input */}
-    <input
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      placeholder="Message..."
-      className="flex-1 bg-transparent outline-none text-sm"
-    />
+      <div className="flex items-center gap-2 rounded-full border px-3 py-2">
+        {/* Media Button */}
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          disabled={isUploading}
+          className="text-gray-500 hover:text-black disabled:opacity-50"
+        >
+          <Image size={20} />
+        </button>
 
-    {/* Send button (right inside input) */}
-    <button
-      onClick={sendMessage}
-      disabled={!message.trim()}
-      className={`${
-        message.trim()
-          ? "text-blue-500 hover:text-blue-600"
-          : "text-gray-400"
-      }`}
-    >
-      <SendHorizontal size={20} />
-    </button>
-  </div>
+        {/* Text Input */}
+        <input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Message..."
+          disabled={isUploading}
+          className="flex-1 bg-transparent outline-none text-sm disabled:opacity-50"
+        />
 
-  {/* Hidden file input */}
-  <input
-    ref={fileInputRef}
-    type="file"
-    hidden
-    onChange={(e) =>
-      e.target.files && handleSendMedia(e.target.files[0])
-    }
-  />
-</div>
+        {/* Send Button */}
+        <button
+          onClick={sendMessage}
+          disabled={!message.trim() || isUploading}
+          className={`${
+            message.trim() && !isUploading
+              ? "text-blue-500 hover:text-blue-600"
+              : "text-gray-400"
+          }`}
+        >
+          <SendHorizontal size={20} />
+        </button>
+      </div>
 
+      {/* Hidden File Input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        hidden
+        onChange={handleFileSelect}
+      />
+    </div>
   );
 }

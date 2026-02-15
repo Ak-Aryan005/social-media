@@ -68,7 +68,7 @@ const handleNewMessage = (msg: any) => {
             <img
               src={msg.media.url}
               alt="chat"
-              className="max-w-xs rounded-lg"
+              className="w-full max-w-[70vw] lg:max-w-md rounded-lg object-contain"
             />
           );
         case "video":
@@ -76,7 +76,8 @@ const handleNewMessage = (msg: any) => {
             <video
               src={msg.media.url}
               controls
-              className="max-w-xs rounded-lg"
+              className="w-full max-w-[70vw] lg:max-w-md rounded-lg"
+
             />
           );
         case "audio":
