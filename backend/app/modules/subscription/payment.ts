@@ -47,8 +47,8 @@ export const subscription = async (req: AuthRequest, res: Response) => {
       payment_method_types: ["card"],
       line_items: [{ price: plan.priceId, quantity: 1 }],
       success_url:
-        "http://localhost:8080/subscription-success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:8080/subscription-cancel",
+        "http://https://social-media-5juuilloq-ak-aryan005s-projects.vercel.app/subscription-success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://social-media-5juuilloq-ak-aryan005s-projects.vercel.app/subscription-cancel",
       metadata: { userId, planId, type: "subscription" },
       subscription_data: {
         metadata: { userId, planId, type: "subscription" },
