@@ -13,7 +13,7 @@ export const initSocket = () => {
       return null;
     }
 
-    socket = io(import.meta.env.VITE_API_URL, {
+    socket = io(import.meta.env.VITE_SOCKET_URL, {
       transports: ["websocket"],
       auth: {
         token: `Bearer ${token}`, // 🔥 REQUIRED
