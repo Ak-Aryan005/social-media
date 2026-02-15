@@ -98,7 +98,8 @@ import cors, { CorsOptions } from "cors";
 const allowedOrigins: string[] = [
   "http://localhost:5173", // Vite
   "http://localhost:8080", // CRA
-  "https://social-media-5juuilloq-ak-aryan005s-projects.vercel.app"
+  "https://social-media-5juuilloq-ak-aryan005s-projects.vercel.app",
+  "https://social-media-lime-omega.vercel.app"
 ];
 
 const corsOptions: CorsOptions = {
