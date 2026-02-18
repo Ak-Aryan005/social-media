@@ -16,6 +16,7 @@ try {
         user: config.smtp.user,
         pass: config.smtp.pass, // App password
       },
+      connectionTimeout: 10000,
     });
     logger.info("Gmail transporter initialized successfully");
   } else {
