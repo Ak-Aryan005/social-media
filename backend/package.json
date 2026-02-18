@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "nodemon app/index.ts",
-    "build": "tsc && cp -r views bin/views",
+    "build": "tsc && cp -r app/views bin/app/views",
     "start": "node bin/index.js",
     "lint": "eslint . --ext .ts",
     "prepare": "husky install",
