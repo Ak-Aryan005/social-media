@@ -51,7 +51,7 @@ export const sendEmail = async (options: EmailOptions): Promise<boolean> => {
 
     // Render template if provided
     if (template) {
-     const templatePath = join(process.cwd(), "bin", "views", `${template}.ejs`);
+    const templatePath = join(process.cwd(), "bin", "views", `${template}.ejs`);
       const templateContent = readFileSync(templatePath, "utf8");
       emailHtml = ejs.render(templateContent, {
         ...data,
