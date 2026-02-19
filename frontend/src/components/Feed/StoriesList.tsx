@@ -55,7 +55,7 @@ export default function StoriesList() {
             key={userId}
             id={userId} // ✅ this will be passed to StoryViewer
             username={firstStory.user.username || 'User'}
-            avatar={firstStory.user.avatar || 'https://via.placeholder.com/150'}
+            avatar={firstStory.user.avatar || "/DP For Girls (19).jpg" }
             currentUserId={user?._id} // pass your logged-in user ID here
             views={firstStory.views}
           />
