@@ -7,6 +7,7 @@ import Comment from "../../comment/models/comment.model";
 import mongoose from "mongoose";
 import { createNotification } from "../../notification/notification.service";
 import { notifyUser } from "../../../sockets/notification.gateway";
+
 export const createLike = async (userInfo: any, data: any) => {
   try {
     const { targetType, targetId } = data;
@@ -16,19 +17,20 @@ export const createLike = async (userInfo: any, data: any) => {
       { user: userInfo.id, targetId },
       { $setOnInsert: { ...data, user: userInfo.id } },
       { upsert: true, new: true }
-    );
+    ).exec();
 
-    // Update likes array in target document atomically
-    let targetModel = targetType === "post" ? Post : Comment;
+    // Determine target model
+    const targetModel = targetType === "post" ? Post : Comment;
+    
+    // Use explicit generic to satisfy TypeScript
     const target = await targetModel.findByIdAndUpdate(
       targetId,
       { $addToSet: { likes: userInfo.id } },
       { new: true }
-    );
+    ).exec();
 
     if (!target) throw new ApiError(404, `${targetType} not found`);
 
-    // Notify user asynchronously (do not block response)
     notifyUser({
       user: target.user,
       type: "like",
@@ -51,16 +53,15 @@ export const removeLike = async (userInfo: any, data: any) => {
   try {
     const { targetType, targetId } = data;
 
-    // Remove Like document atomically
     await Like.deleteOne({ user: userInfo.id, targetId });
 
-    // Remove from likes array atomically
     const targetModel = targetType === "post" ? Post : Comment;
+    
     const target = await targetModel.findByIdAndUpdate(
       targetId,
       { $pull: { likes: userInfo.id } },
       { new: true }
-    );
+    ).exec();
 
     if (!target) throw new ApiError(404, `${targetType} not found`);
 
@@ -71,7 +72,6 @@ export const removeLike = async (userInfo: any, data: any) => {
     throw new ApiError(500, error.message);
   }
 };
-
 
 
       
