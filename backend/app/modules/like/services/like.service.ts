@@ -7,93 +7,71 @@ import Comment from "../../comment/models/comment.model";
 import mongoose from "mongoose";
 import { createNotification } from "../../notification/notification.service";
 import { notifyUser } from "../../../sockets/notification.gateway";
-
 export const createLike = async (userInfo: any, data: any) => {
   try {
-    const { targetType, targetId, user } = data;
-    const existingLike = await Like.findOne({ user: userInfo.id,_id:targetId });
-    if (existingLike) {
-      throw new ApiError(
-        httpStatus.ALREADY_REPORTED,
-        `you already like this ${targetType}`
-      );
-    }
-    const like = await Like.create({
-      user: userInfo.id,
-      ...data,
-    });
-    let target = null;
-    if (targetType === "post") {
-      target = await Post.findOne({ _id: targetId });
-      target?.likes.push(userInfo.id);
-    } else if (targetType === "comment") {
-      target = await Comment.findOne({ _id: targetId });
-      target?.likes.push(userInfo.id);
-    } else {
-      throw new ApiError(httpStatus.NOT_FOUND, `${targetType} not found`);
-    }
-    // console.log(`target ${target}`)
-   await target?.save();
-await notifyUser({
-  user: target?.user,
-  type: "like",
-  title: `${targetType} is liked`,
-  message: `liked your ${targetType}`,
-  relatedUser:userInfo.id ,
+    const { targetType, targetId } = data;
 
-  ...(targetType === "post" && {
-    relatedPost: target?._id,
-  }),
+    // Atomic upsert: only create if it doesn't exist
+    const like = await Like.findOneAndUpdate(
+      { user: userInfo.id, targetId },
+      { $setOnInsert: { ...data, user: userInfo.id } },
+      { upsert: true, new: true }
+    );
 
-  ...(targetType === "comment" && {
-    relatedComment: target?._id,
-  }),
-});
+    // Update likes array in target document atomically
+    let targetModel = targetType === "post" ? Post : Comment;
+    const target = await targetModel.findByIdAndUpdate(
+      targetId,
+      { $addToSet: { likes: userInfo.id } },
+      { new: true }
+    );
 
+    if (!target) throw new ApiError(404, `${targetType} not found`);
+
+    // Notify user asynchronously (do not block response)
+    notifyUser({
+      user: target.user,
+      type: "like",
+      title: `${targetType} is liked`,
+      message: `liked your ${targetType}`,
+      relatedUser: userInfo.id,
+      ...(targetType === "post" && { relatedPost: target._id }),
+      ...(targetType === "comment" && { relatedComment: target._id }),
+    }).catch(err => console.error("Notify failed", err));
 
     return like;
   } catch (error: any) {
-    console.error("Error in register service:", error);
-    console.error("Error message:", error?.message);
+    console.error("Error in like service:", error?.message);
     if (error instanceof ApiError) throw error;
-    throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, error.message);
+    throw new ApiError(500, error.message);
   }
 };
 
 export const removeLike = async (userInfo: any, data: any) => {
   try {
-    const { targetType, targetId, likeId } = data;
-    const like = await Like.find({ targetId });
-    if (!like) {
-      throw new ApiError(httpStatus.NOT_FOUND, "Like not found");
-    }
-    let target = null;
-    if (targetType === "post") {
-      target = await Post.findOneAndUpdate(
-        { _id: targetId },
-        { $pull: { likes: userInfo.id } },
-        { new: true } // returns updated document
-      );
-    } else if (targetType === "comment") {
-      target = await Comment.findOneAndUpdate(
-        { _id: targetId },
-        { $pull: { likes: userInfo.id } },
-        { new: true }
-      );
-    } else {
-      throw new ApiError(httpStatus.NOT_FOUND, `${targetType} not found`);
-    }
-    // console.log(`target ${target}`)
-    await Like.deleteMany({ targetId, user: userInfo.id });
-    // target?.save();
-    return like;
+    const { targetType, targetId } = data;
+
+    // Remove Like document atomically
+    await Like.deleteOne({ user: userInfo.id, targetId });
+
+    // Remove from likes array atomically
+    const targetModel = targetType === "post" ? Post : Comment;
+    const target = await targetModel.findByIdAndUpdate(
+      targetId,
+      { $pull: { likes: userInfo.id } },
+      { new: true }
+    );
+
+    if (!target) throw new ApiError(404, `${targetType} not found`);
+
+    return { success: true };
   } catch (error: any) {
-    console.error("Error in register service:", error);
-    console.error("Error message:", error?.message);
+    console.error("Error in unlike service:", error?.message);
     if (error instanceof ApiError) throw error;
-    throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, error.message);
+    throw new ApiError(500, error.message);
   }
 };
+
 
 
       
