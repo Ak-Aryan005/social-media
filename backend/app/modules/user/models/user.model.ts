@@ -149,7 +149,7 @@ userSchema.index(
   {
     unique: true,
     partialFilterExpression: {
-      phone: { $exists: true, $nin: [null, ""] }
+      phone: { $type: "string", $ne: "" } // only index non-empty strings
     }
   }
 );
