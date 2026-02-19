@@ -144,16 +144,6 @@ userSchema.index({ email: 1 });
 userSchema.index({ username: 1 });
 userSchema.index({ createdAt: -1 });
 
-userSchema.index(
-  { phone: 1 },
-  {
-    unique: true,
-    partialFilterExpression: {
-      phone: { $type: "string", $ne: "" } // only index non-empty strings
-    }
-  }
-);
-
 
 
 
