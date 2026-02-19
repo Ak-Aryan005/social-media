@@ -192,14 +192,14 @@ const handleDeletePost = async () => {
           to={`/profile/${userId}`}
           className="flex items-center gap-3 hover:opacity-80 transition"
         >
-          {avatar && (
+          
             <motion.img
               whileHover={{ scale: 1.1 }}
               src={avatar|| avatarimg}
               alt={username}
               className="w-10 h-10 rounded-full object-cover ring-2 ring-border"
             />
-          )}
+          
           <div>
            <span className='flex gap-1'>
             <p className="font-semibold text-foreground text-sm sm:text-base">
