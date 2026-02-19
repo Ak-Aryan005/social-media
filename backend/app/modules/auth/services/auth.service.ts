@@ -96,12 +96,12 @@ export const register = async (userData: RegisterBody) => {
       purpose: userData.purpose,
       expiresAt: new Date(Date.now() + 5 * 60 * 1000), // expires in 5 minutes
     });
-    try {
-      await sendVerificationEmail(user.email, user.username, otp);
-    } catch (error: any) {
-      // Log error but don't fail registration
-      logger.error(`Failed to send verification email: ${error.message}`);
-    }
+    // try {
+    //   await sendVerificationEmail(user.email, user.username, otp);
+    // } catch (error: any) {
+    //   // Log error but don't fail registration
+    //   logger.error(`Failed to send verification email: ${error.message}`);
+    // }
     return user;
   } catch (error: any) {
     console.error("Error in register service:", error);
