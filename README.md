@@ -9,7 +9,7 @@ This application provides real-time communication, media sharing, stories, subsc
 
 ### Frontend (Vercel)
 
-social-media-lime-omega.vercel.app
+https://social-media-lime-omega.vercel.app
 
 ### Backend API (Render)
 
@@ -250,14 +250,12 @@ Contributions are welcome.
 
 ---
 
-# 📄 License
 
-This project is licensed under the MIT License.
 
 ---
 
 # 👨‍💻 Developer
 
-Built with ❤️ by Your Name
+Built with ❤️ by Aryan
 
 If you like this project, feel free to ⭐ the repository.
