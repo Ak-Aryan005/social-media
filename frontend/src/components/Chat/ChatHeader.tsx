@@ -24,9 +24,9 @@ export default function ChatHeader({ chatId }: ChatHeaderProps) {
   return <Loader />;
 }
 
-if (!currentChat && !matchedGroup) {
-  return <Loader />;
-}
+// if (!currentChat && !matchedGroup) {
+//   return <Loader />;
+// }
 
   // Determine header user (other participant)
   const headerUser = currentChat?.userInfo || profile;
